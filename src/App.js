@@ -1293,6 +1293,10 @@ import AddNotas from './components/AddNotas';
 import EditNotas from './components/EditNotas';
 import AddDepartamento from './components/AddDepartamento';
 import EditDepartamento from './components/EditDepartamento';
+import AddAsignaciones from './components/AddAsignaciones';
+import EditAsignaciones from './components/EditAsignaciones';
+import AddMatriculas from './components/AddMatriculas';
+import EditMatriculas from './components/EditMatriculas'; // Nueva importación
 import './styles.css';
 
 const App = () => {
@@ -1361,6 +1365,8 @@ const App = () => {
                     <Route path="/cursos" element={<Cursos data={data} fetchData={fetchData} />} />
                     <Route path="/departamentos" element={<Departamentos data={data} fetchData={fetchData} />} />
                     <Route path="/matriculas" element={<Matriculas data={data} fetchData={fetchData} />} />
+                    <Route path="/matriculas/:id" element={<EditMatriculas />} /> {/* Nueva ruta */}
+                    <Route path="/agregar-matricula" element={<AddMatriculas />} />
                     <Route path="/asignaciones" element={<Asignaciones data={data} fetchData={fetchData} />} />
                     <Route path="/notas" element={<Notas data={data} fetchData={fetchData} />} />
                     <Route path="/profesores" element={<Profesores data={data} fetchData={fetchData} />} />
@@ -1368,6 +1374,8 @@ const App = () => {
                     <Route path="/agregar-nota" element={<AddNotas />} />
                     <Route path="/agregar-departamento" element={<AddDepartamento />} />
                     <Route path="/departamentos/:id" element={<EditDepartamento />} />
+                    <Route path="/agregar-asignacion" element={<AddAsignaciones />} />
+                    <Route path="/asignaciones/:id" element={<EditAsignaciones />} />
                     <Route path="/" element={renderSection()} />
                 </Routes>
             </div>

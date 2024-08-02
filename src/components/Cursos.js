@@ -676,6 +676,8 @@ const Cursos = ({ data, fetchData }) => {
 export default Cursos;
  */
 
+
+// src/components/Cursos.js
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -740,7 +742,7 @@ const Cursos = ({ data, fetchData }) => {
 
     const filteredData = data.filter(course => {
         const matchesSearchTerm = course.nombre ? course.nombre.toLowerCase().includes(searchTerm) : false;
-        const matchesDepartment = selectedDepartment === '' || course.departamento === selectedDepartment;
+        const matchesDepartment = selectedDepartment === '' || course.nombre_departamento === selectedDepartment;
         const matchesName = selectedName === '' || course.nombre === selectedName;
         return matchesSearchTerm && matchesDepartment && matchesName;
     });
@@ -789,7 +791,7 @@ const Cursos = ({ data, fetchData }) => {
                             <td>{course.id_curso}</td>
                             <td>{course.nombre}</td>
                             <td>{course.descripcion}</td>
-                            <td>{course.departamento}</td>
+                            <td>{course.nombre_departamento}</td>
                             <td>
                                 <button onClick={() => handleEdit(course.id_curso)}><i className="fa-solid fa-pen editar"></i></button>
                                 <button onClick={() => handleDelete(course.id_curso)}><i className="fa-solid fa-trash eliminar"></i></button>
